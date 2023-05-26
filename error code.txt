@@ -1,0 +1,15 @@
+  con.Open()
+        Dim dt As New DataTable
+        Dim ds As New DataSet
+        ds.Tables.Add(dt)
+        Dim da As New OleDbDataAdapter
+
+        da = New OleDbDataAdapter("select * from session where CUSTOMER NAME like " & TextBox1.Text& "%", con)
+        da = New OleDbDataAdapter(Str, con)
+        da.Fill(ds, "session")
+        DataGridView1.DataSource = ds.Tables("session")
+        da.Dispose()
+        con.Close()
+
+
+ con.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=G:\project tri6\cybercafems\session.accdb"
